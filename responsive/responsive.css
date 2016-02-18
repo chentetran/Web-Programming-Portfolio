@@ -1,8 +1,32 @@
+@media (max-width: 400px) {
+	.software {
+		width: 128px;
+		height: 240px;
+		background: url(software.png) -508px 242px;
+	}
+}
+
+@media (min-width: 401px) {
+	.software {
+		width: 128px;
+		height: 240px;
+		background: url(software.png) -381px 242px;
+	}
+}
+
+@media (min-width: 501px) {
+	.software {
+		width: 128px;
+		height: 240px;
+		background: url(software.png) -254px 242px;
+	}
+}
+
 @media (min-width: 601px) {
 	.software {
 		width: 128px;
 		height: 240px;
-		background: url(software.png) 128px 240px;
+		background: url(software.png) -127px 242px;
 	}
 }
 
@@ -11,7 +35,7 @@
 	.software {
 		width: 128px;
 		height: 240px;
-		background: url(software.png) 0px 240px;
+		background: url(software.png) 0px 242px;
 	}
 }
 
@@ -19,7 +43,7 @@
 	.software {
 		width: 128px;
 		height: 240px;
-		background: url(software.png) 512px 0px;
+		background: url(software.png) -508px 0px;
 	}
 }
 
@@ -27,7 +51,7 @@
 	.software {
 		width: 128px;
 		height: 240px;
-		background: url(software.png) 384px 0px;
+		background: url(software.png) -381px 0px;
 	}
 }
 
@@ -35,7 +59,7 @@
 	.software {
 		width: 128px;
 		height: 240px;
-		background: url(software.png) 256px 0px;
+		background: url(software.png) -254px 0px;
 	}
 }
 
@@ -43,7 +67,7 @@
 	.software {
 		width: 128px;
 		height: 240px;
-		background: url(software.png) 128px 0px;
+		background: url(software.png) -127px 0px;
 	}
 }
 
