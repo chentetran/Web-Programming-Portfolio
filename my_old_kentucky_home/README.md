@@ -7,3 +7,9 @@ I was confused as to how to create a folder inside a git repo, so I am missing a
 I spent about an hour on this assignment.
 
 I discussed this assignment with Michele Mei.
+
+The background image was taken from (https://wall.alphacoders.com/big.php?i=464228).
+
+The photo of the baby was taken from (http://marymaryquitecontrary.weebly.com/blog/for-my-old-kentucky-home-far-away)
+
+The photo of the crying lady was taken from (http://www.deepdivingmen.com/landscapes-of-tears-men-cannot-cry/)
