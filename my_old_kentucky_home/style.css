@@ -1,0 +1,16 @@
+body {
+	text-align: center;
+	background-image: url("kfc_wallpaper.jpg");
+	background-size: 100%;
+	color: white;
+}
+
+#title {
+	font-size:50px;
+}
+
+#lyrics {
+	position: relative;
+	margin-top: 3%;
+	font-size: 25px;
+}
