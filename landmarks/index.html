@@ -3,8 +3,27 @@
 <head>
 	<title>Landmarks</title>
 	<meta charset="utf-8"/>
-</head>
-<body>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+	<script>
+		var options = {
+							zoom: 13,
+							center: me,
+							mapTypeId: google.maps.MapTypeId.ROADMAP
+					  };
 
+
+
+		function init()
+		{
+			map = new google.maps.Map(document.getElementById("map"), options);
+			getMyLocation
+
+
+		};
+	</script>
+</head>
+<body onload="init()">
+	<div id="map"></div>
 </body>
 </html>
