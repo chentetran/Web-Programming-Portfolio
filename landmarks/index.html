@@ -11,6 +11,10 @@
 		var lng = 0;
 		var request = new XMLHttpRequest();
 		var me = new google.maps.LatLng(lat, lng);
+		var infowindow = new google.maps.InfoWindow();
+		var map;
+		var marker;
+		var messageData;
 		var options = {
 							zoom: 13,
 							center: me,
@@ -19,18 +23,40 @@
 
 		request.open("POST", "https://defense-in-derpth.herokuapp.com/sendLocation", true);
 		request.onreadystatechange = parse;
-		var infowindow = new google.maps.InfoWindow();
-		var map;
-		var marker;
 
 		function parse()
 		{
 			if (request.readyState == 4 && request.status == 200) {
-				var messageData = JSON.parse(request.responseText);
-				console.log(messageData);
+				messageData = JSON.parse(request.responseText);
+				render_others();
 			}
 			else if (request.readyState == 4 && request.status != 200) {
 				alert("Request status not good!")
+			}
+		}
+
+		function render_others()
+		{
+			for (var i = 0; i < messageData["people"].length; i++) {
+				name = messageData['people'][i]["login"]
+				_lat = messageData["people"][i]["lat"];
+				_lng = messageData["people"][i]["lng"];
+				pos = new google.maps.LatLng(_lat,_lng);
+				if(name === 'IGNACIO_BOWMAN'){ 
+					continue;
+				}
+				person = new google.maps.Marker({
+					position: pos,
+					title: name
+				});
+				person.content = name;
+
+				person.setMap(map);
+
+				google.maps.event.addListener(person, 'click', function() {
+					infowindow.setContent(this.content);
+					infowindow.open(this.getMap(), this);
+				});
 			}
 		}
 
