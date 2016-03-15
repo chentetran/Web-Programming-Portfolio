@@ -19,8 +19,6 @@
 
 		request.open("POST", "https://defense-in-derpth.herokuapp.com/sendLocation", true);
 		request.onreadystatechange = parse;
-		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		request.send("login=IGNACIO_BOWMAN&lat=&lng=");
 		var infowindow = new google.maps.InfoWindow();
 		var map;
 		var marker;
@@ -29,7 +27,7 @@
 		{
 			if (request.readyState == 4 && request.status == 200) {
 				var messageData = JSON.parse(request.responseText);
-				console.log(messageData)
+				console.log(messageData);
 			}
 			else if (request.readyState == 4 && request.status != 200) {
 				alert("Request status not good!")
@@ -51,6 +49,8 @@
 						lat = position.coords.latitude;
 						lng = position.coords.longitude;
 						renderMap();
+						request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						request.send("login=IGNACIO_BOWMAN&lat=" + lat + "&lng=" + lng);
 					});
 			}
 			else {
