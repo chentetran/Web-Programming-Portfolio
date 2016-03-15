@@ -37,6 +37,7 @@
 
 		function render_others()
 		{
+			img = 'TwoD.png';
 			for (var i = 0; i < messageData["people"].length; i++) {
 				name = messageData['people'][i]["login"]
 				_lat = messageData["people"][i]["lat"];
@@ -47,7 +48,8 @@
 				}
 				person = new google.maps.Marker({
 					position: pos,
-					title: name
+					title: name,
+					icon: img
 				});
 				person.content = name;
 
@@ -57,6 +59,12 @@
 					infowindow.setContent(this.content);
 					infowindow.open(this.getMap(), this);
 				});
+
+
+			}
+			// img = '';
+			for (var i = 0; i < messageData['landmarks'].length; i++) {
+				name = messageData['landmarks'][i]['properties']['Location_Name'];
 			}
 		}
 
@@ -89,10 +97,11 @@
 			me = new google.maps.LatLng(lat, lng);
 
 			map.panTo(me);
-
+			img = 'ASpades.jpg';
 			marker = new google.maps.Marker({
 				position: me,
-				title: "You are here"
+				title: "You are here",
+				icon: img
 			});
 
 			marker.setMap(map);
