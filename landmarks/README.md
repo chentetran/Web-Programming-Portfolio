@@ -1,9 +1,10 @@
 # landmarks
 
+Every required aspect of the assignment has been correctly implemented to the best of my knowledge.
 
+I discussed aspects of the assignment with Michele Mei.
 
-
-
+I spent about 7 hours on this assignment.
 
 ------------------------------------------------------------------------------
 Citations:

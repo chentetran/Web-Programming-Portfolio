@@ -36,9 +36,6 @@ function render_others()
 		_lat = messageData["people"][i]["lat"];
 		_lng = messageData["people"][i]["lng"];
 		pos = new google.maps.LatLng(_lat,_lng);
-		if(name === 'IGNACIO_BOWMAN'){ 
-			continue;
-		}
 		marker = new google.maps.Marker({
 			position: pos,
 			title: name,
@@ -116,7 +113,7 @@ function renderMap()
 		icon: img
 	});
 	var closest = closestLandmark();
-	marker.content = "<p align='center'>You are here</p></br><b>Closest landmark: </b>" + closest[0]['properties']['Location_Name'] + "</br><b>Distance: </b>" + closest[1] + " miles away";
+	marker.content = "<p align='center'>You are here</br>(IGNACIO_BOWMAN)</p></br><b>Closest landmark: </b>" + closest[0]['properties']['Location_Name'] + "</br><b>Distance: </b>" + closest[1] + " miles away";
 	marker.setMap(map);
 
 	google.maps.event.addListener(marker, 'click', function(){
