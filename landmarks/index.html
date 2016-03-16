@@ -125,13 +125,30 @@
 				icon: img
 			});
 			var closest = closestLandmark();
-			marker.content = "You are here</br><b>Closest landmark: </b>" + closest[0]['properties']['Location_Name'] + "</br><b>Distance: </b>" + closest[1] + " miles away";
+			marker.content = "<p align='center'>You are here</p></br><b>Closest landmark: </b>" + closest[0]['properties']['Location_Name'] + "</br><b>Distance: </b>" + closest[1] + " miles away";
 			marker.setMap(map);
 
 			google.maps.event.addListener(marker, 'click', function(){
 				infowindow.setContent(this.content);
 				infowindow.open(this.getMap(), this);
 			});
+
+			// render polyline
+			var path = [
+				{lat: lat, lng: lng},
+				{lat: closest[0]['geometry']['coordinates'][1],
+				 lng: closest[0]['geometry']['coordinates'][0]}
+			];
+
+			var polyline = new google.maps.Polyline({
+				path: path,
+				geodesic: true,
+				strokeColor: '#9b54de',
+				strokeOpacity: 1.0,
+				strokeWeight: 7
+			});
+
+			polyline.setMap(map);
 		}
 
 		Number.prototype.toRad = function() {
