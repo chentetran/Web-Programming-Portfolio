@@ -29,6 +29,7 @@
 			if (request.readyState == 4 && request.status == 200) {
 				messageData = JSON.parse(request.responseText);
 				render_others();
+				render_landmarks();
 			}
 			else if (request.readyState == 4 && request.status != 200) {
 				alert("Request status not good!")
@@ -46,25 +47,45 @@
 				if(name === 'IGNACIO_BOWMAN'){ 
 					continue;
 				}
-				person = new google.maps.Marker({
+				marker = new google.maps.Marker({
 					position: pos,
 					title: name,
 					icon: img
 				});
-				person.content = name;
+				marker.content = name;
 
-				person.setMap(map);
+				marker.setMap(map);
 
-				google.maps.event.addListener(person, 'click', function() {
+				google.maps.event.addListener(marker, 'click', function() {
 					infowindow.setContent(this.content);
 					infowindow.open(this.getMap(), this);
 				});
-
-
 			}
-			// img = '';
+		}
+
+		function render_landmarks()
+		{	
+			img = 'chipmarker.png'
 			for (var i = 0; i < messageData['landmarks'].length; i++) {
 				name = messageData['landmarks'][i]['properties']['Location_Name'];
+				
+				pos = messageData['landmarks'][i]['geometry']['coordinates'];
+
+				pos = new google.maps.LatLng(pos[1],pos[0]);
+
+				marker = new google.maps.Marker({
+					position: pos,
+					title: name,
+					icon: img
+				});
+				marker.content = name;
+
+				marker.setMap(map);
+
+				google.maps.event.addListener(marker, 'click', function() {
+					infowindow.setContent(this.content);
+					infowindow.open(this.getMap(), this);
+				});
 			}
 		}
 
@@ -78,6 +99,7 @@
 
 		function getMyLocation() {
 			if (navigator.geolocation) { // if browser supported
+
 				navigator.geolocation.getCurrentPosition( 
 					function(position) {
 						lat = position.coords.latitude;
@@ -107,8 +129,8 @@
 			marker.setMap(map);
 
 			google.maps.event.addListener(marker, 'click', function(){
-				infowindow.setContent(marker.title);
-				infowindow.open(map,marker);
+				infowindow.setContent(this.title);
+				infowindow.open(this.getMap(), this);
 			});
 		}
 
