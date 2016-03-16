@@ -67,7 +67,7 @@
 		{	
 			img = 'chipmarker.png'
 			for (var i = 0; i < messageData['landmarks'].length; i++) {
-				name = messageData['landmarks'][i]['properties']['Location_Name'];
+				details = messageData['landmarks'][i]['properties']['Details'];
 				
 				pos = messageData['landmarks'][i]['geometry']['coordinates'];
 
@@ -75,10 +75,9 @@
 
 				marker = new google.maps.Marker({
 					position: pos,
-					title: name,
 					icon: img
 				});
-				marker.content = name;
+				marker.content = details;
 
 				marker.setMap(map);
 
