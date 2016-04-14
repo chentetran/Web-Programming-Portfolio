@@ -12,7 +12,7 @@ var options = {
 					mapTypeId: google.maps.MapTypeId.ROADMAP
 			  };
 
-request.open("POST", "https://defense-in-derpth.herokuapp.com/sendLocation", true);
+request.open("POST", "https://pumpkin-tart-22013.herokuapp.com/sendLocation", true);
 request.onreadystatechange = parse;
 
 function parse()
