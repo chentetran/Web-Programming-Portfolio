@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vincent's Assignment 4</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="center"><h1>Assignment 4: Security</h1><h3>By Vincent Tran</h3></div>
+	</br><h2>Introduction</h2><hr>
+	<p>This assessment tests the security of the server created by David Bernstein for COMP20's assignment 3. Bernstein's server was created to take user locations through the /sendLocation POST route and send back locations of all other users that have checked in using the server. My job is to find vulnerabilites in Bernstein's server and propose strategies to remedy the issue, which you can find below.</p>
+	</br><h2>Methodology</h2><hr>
+	<p>To test the security of Bernstein's server, I used the curl command on terminal. I am trying to compromise the security of the server using simple tools so as to illustrate how easy it can be to hack an insecure server.</p>
+	<p>Testing was first done "black box", meaning I did not look at the source code for the server before attempting to hack it. I then looked at the code after doing as much damage as I could to find errors in coding style that could lead to more vulnerabilities.</p>
+
+	</br><h2>Abstract of Findings</h2><hr>
+	<p></p>
+	</br><h2>Issues Found</h2><hr>
+	<ol>
+		<li><h4>Cross-Site Scripting</h4></li>
+		<li>
+			<h4>Content Injection</h4>
+			<ul>
+				<li><p>Similar to the vulnerability above, injection of HTML is another security issue. Users can submit HTML content, which allows them to change the content and design of the page which could be annoying and make the page less pleasurable to look at. More importantly, users can also submit their own forms, which can deceive other users to submit private information. This compromises users' privacy, thus affecting user satisfaction of your services.</p></li>
+				<li><p>This issue can be found in the /sendLocation POST route.</p></li>
+				<li><p>The severity of this issue is medium. Most HTML injections can be annoying, changing the style of the page. At worst, a form like shown in this example could be added, but sensible users will avoid suspicious forms like this.</p></li>
+				<li><p>Like above, the solution would be to parse user input and replace special characters with an empty string: <span class="code">food = food.replace(/[^\w\s]/gi, '');</span></p></li>
+			</ul>
+		</li>
+		
+	</ol>
+	</br><h2>Conclusion</h2><hr>
+</body>
+</html>

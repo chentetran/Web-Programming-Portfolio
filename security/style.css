@@ -1,0 +1,13 @@
+body {
+	padding-left: 2%;
+	padding-right: 2%;
+	font-family: Arial;
+}
+
+.center {
+	text-align: center;
+}
+
+.code {
+	font-family: Courier New;
+}
