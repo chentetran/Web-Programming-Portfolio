@@ -1,7 +1,7 @@
 Assignment 4: Security
 
-cant enter lat=0, lng=0, cant enter letters
+1. I have followed the instructions and found 3 vulnerabilities and wrote about them.
 
-h1 allowed
+2. I discussed this assignment with Anthony Nguyen, Emily Van Milligen, and Michele Mei.
 
-can do crosssitescripting
+3. I spent 6 hours completing this assignment.
